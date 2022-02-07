@@ -1,0 +1,22 @@
+.Navbar{
+    display:flex;
+    flex-direction: row;
+    background-color: #232345;
+    height: 100px;
+    justify-content: space-around;
+		align-items:center;
+}
+
+.Boton{
+    background-color: #343445;
+    height: 50px;
+    width: 150px;
+    margin-bottom:5px;
+    border-color: #000000;
+    border-radius:20px;
+    color: #ffffff;
+}
+
+.Boton:hover{
+    background-color: #454556;
+}
