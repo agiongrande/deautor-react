@@ -1,16 +1,23 @@
-import ItemCount from "../ItemCount/ItemCount"
+import  { useEffect, useState} from 'react'
 import "./ItemListContainer.css"
+import { getProducts } from '../../asyncmock'
+import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = ({greatings}) => {
-    function agregar(cant) {
-        console.log("Se agregaron " + cant + " unidades al carrito");
-      }
+
+      const [products,setProducts] = useState([])
+
+      useEffect(() =>{
+        getProducts().then(products => {
+          setProducts(products)
+        })
+      },[])
 
       return (
         <>
-       <p className='saludo'>{greatings}</p>
-       <ItemCount stock='10' inicial='1' onAdd={agregar} />
-      </>
+          <p className='saludo'>{greatings}</p>
+          <ItemList productos={products} />
+        </>
       )
 
       

@@ -1,0 +1,41 @@
+.columna{
+    display:flex;
+    flex-direction: column;
+    background-color: #121234;
+    justify-content: space-around;
+    align-items:center;
+    width: 300px;
+    height: 350px;
+    border-color: #121234;
+    border-radius:20px;
+    color: #ffffff;
+    margin:5px;
+}
+
+img{
+    border-color: #ffffff;
+    border-radius:20px;
+}
+
+.boton{
+    background-color: #121234;
+    height: 40px;
+    width: 150px;
+    margin-bottom:5px;
+    border-color: #000000;
+    border-radius:20px;
+    color: #ffffff;
+}
+
+.boton:hover{
+    background-color: #454556;
+}
+
+.filaProducto{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    width: 90%;
+    height: 250px;
+}

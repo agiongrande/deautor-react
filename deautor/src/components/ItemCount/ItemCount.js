@@ -18,15 +18,11 @@ function ItemCount  ({stock,inicial,onAdd}) {
     }
 
     return (
-        <div className='columna'>
-            <p className='textoBlanco'>Vodka Smirnoff</p>
             <div className='fila'>
                 <button className='botonS' onClick={restar}>-</button>
                 <p className='textoBlanco'>{count}</p>
                 <button className='botonS' onClick={sumar}>+</button>
             </div>
-            <button className='boton' onClick={() => onAdd(count)}>Agregar al carrito</button>
-        </div>
       )
   }
 
