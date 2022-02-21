@@ -1,9 +1,10 @@
 .fila{
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items:center;
     width: 90%;
     flex-wrap: wrap;
-    margin:auto
+    margin-left:auto;
+    justify-content: space-around;
+    align-items:center;
+    margin-right: auto;
 }

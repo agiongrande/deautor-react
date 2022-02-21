@@ -18,7 +18,7 @@ function ItemCount  ({stock,inicial,onAdd}) {
     }
 
     return (
-            <div className='fila'>
+            <div className='filaCounter'>
                 <button className='botonS' onClick={restar}>-</button>
                 <p className='textoBlanco'>{count}</p>
                 <button className='botonS' onClick={sumar}>+</button>

@@ -6,7 +6,6 @@ function agregar() {
   }
 
 function Item ({item=[]}) {
-    console.log(item)
         return (
         <div>
             <div className='columna'>

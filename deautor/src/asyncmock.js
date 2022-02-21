@@ -20,3 +20,11 @@ let productos = [
       },2000)
     })
   }
+
+  export const getProduct = () => {
+    return new Promise((resolve)=>{
+      setTimeout(() => {
+        resolve(productos[0])
+      },2000)
+    })
+  }

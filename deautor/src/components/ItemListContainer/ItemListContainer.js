@@ -19,8 +19,6 @@ const ItemListContainer = ({greatings}) => {
           <ItemList productos={products} />
         </>
       )
-
-      
   }
 
   export default ItemListContainer
