@@ -1,3 +1,7 @@
+a{
+    all: unset;
+}
+
 .columna{
     display:flex;
     flex-direction: column;
@@ -11,6 +15,7 @@
     color: #ffffff;
     margin:5px;
 }
+
 
 img{
     border-color: #ffffff;

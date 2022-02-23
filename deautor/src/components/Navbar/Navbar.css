@@ -17,6 +17,16 @@
     color: #ffffff;
 }
 
+.botonActivo{
+    background-color: #338888;
+    height: 50px;
+    width: 150px;
+    margin-bottom:5px;
+    border-color: #000000;
+    border-radius:20px;
+    color: #ffffff;
+}
+
 .Boton:hover{
     background-color: #454556;
 }
