@@ -1,13 +1,15 @@
 .columnaUnico{
     background-color: #121234;
     width: 90%;
-    height: 350px;
     border-color: #121234;
     border-radius:20px;
     color: #ffffff;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    align-items:center;
 }
 
 img{
@@ -32,8 +34,7 @@ img{
 .filaProductoUnico{
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:space-around;
     align-items:center;
     width: 90%;
-    height: 250px;
 }

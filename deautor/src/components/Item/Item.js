@@ -13,7 +13,7 @@ function Item ({item=[]}) {
                     <p className='textoBlanco'>$ {item.Precio}</p>
                     <p className='textoBlanco'>Stock: {item.Stock}</p></div>
                 </div>
-                <Link to={`/detail/${item.id}`} className='boton'>Ver detalle</Link>
+                <Link to={`/detail/${item.id}`} className='boton'><button className='boton'>Ver detalle</button></Link>
             </div>
         </div>
           

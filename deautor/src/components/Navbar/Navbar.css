@@ -9,9 +9,9 @@
 
 .Boton{
     background-color: #343445;
-    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 150px;
-    margin-bottom:5px;
     border-color: #000000;
     border-radius:20px;
     color: #ffffff;
@@ -19,9 +19,9 @@
 
 .botonActivo{
     background-color: #338888;
-    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 150px;
-    margin-bottom:5px;
     border-color: #000000;
     border-radius:20px;
     color: #ffffff;

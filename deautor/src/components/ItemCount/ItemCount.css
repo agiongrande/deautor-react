@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items:center;
-    width: 90%;
+    width: 100%;
     height: 70px;
 }
 
@@ -24,4 +24,18 @@
 
 .textoBlanco{
     color:#ffffff
+}
+
+.boton{
+    background-color: #121234;
+    height: 40px;
+    width: 150px;
+    margin-bottom:5px;
+    border-color: #000000;
+    border-radius:20px;
+    color: #ffffff;
+}
+
+.boton:hover{
+    background-color: #454556;
 }
