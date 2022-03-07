@@ -1,13 +1,30 @@
+.NavbarIzq{
+    width: 10%;
+}
+
+.NavbarCen{
+    width: 65%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+	align-items:center;
+}
+
+.NavbarDer{
+    width: 10%;
+}
+
 .Navbar{
     display:flex;
     flex-direction: row;
     background-color: #232345;
     height: 100px;
+    width: 100%;
     justify-content: space-around;
 	align-items:center;
 }
 
-.Boton{
+.botonNav{
     background-color: #343445;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -17,7 +34,7 @@
     color: #ffffff;
 }
 
-.botonActivo{
+.botonNavActivo{
     background-color: #338888;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -27,6 +44,11 @@
     color: #ffffff;
 }
 
-.Boton:hover{
+.botonNav:hover{
     background-color: #454556;
+    cursor: pointer;
+}
+
+img:hover{
+    cursor: pointer;
 }

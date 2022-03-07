@@ -9,7 +9,7 @@ function ItemList ({productos=[]}) {
               return <Item key={producto.id} item={producto} />
               })
             }
-          </div>
+        </div>
         </>
         )
 

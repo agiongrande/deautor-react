@@ -9,12 +9,13 @@ function CartItem ({item=[]}) {
 
     return (
         <div>
-            <div className='filaProducto'>
+            <div className='filaItem'>
                 <div><img src={"./../images/bebida"+item.id+".png"} alt='Logo' /></div>
                 <div><p className='textoBlanco'>{item.Nombre}</p>
-                <p className='textoBlanco'>$ {item.Precio}</p>
-                <p className='textoBlanco'>Cantidad: {item.quantity}</p></div>
-                <div><button onClick={() => removeItem(item.id)}>ELIMINAR</button></div>
+                <p className='textoBlanco'>Precio unitario: $ {item.Precio}</p>
+                <p className='textoBlanco'>Cantidad: {item.quantity}</p>
+                <p className='textoBlanco'>Total: $ {item.quantity*item.Precio}</p></div>
+                <div><button className='boton' onClick={() => removeItem(item.id)}>ELIMINAR</button></div>
             </div>
         </div>
           

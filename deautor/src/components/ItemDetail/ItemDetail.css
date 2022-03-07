@@ -29,6 +29,7 @@ img{
 
 .boton:hover{
     background-color: #454556;
+    cursor: pointer;
 }
 
 .filaProductoUnico{
