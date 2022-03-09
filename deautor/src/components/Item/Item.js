@@ -8,7 +8,7 @@ function Item ({item=[]}) {
         <div>
             <div className='columnaProducto'>
                 <div className='filaProducto'>
-                    <img src={"./../images/bebida"+item.id+".png"} alt='Bebida' />
+                    <img src={"./../images/"+item.img+".png"} alt='Bebida' />
                     <div><p className='textoBlanco'>{item.Nombre}</p>
                     <p className='textoBlanco'>$ {item.Precio}</p>
                     <p className='textoBlanco'>Stock: {item.Stock}</p></div>

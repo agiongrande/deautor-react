@@ -10,7 +10,7 @@ function CartItem ({item=[]}) {
     return (
         <div>
             <div className='filaItem'>
-                <div><img src={"./../images/bebida"+item.id+".png"} alt='Logo' /></div>
+                <div><img src={"./../images/"+item.img+".png"} alt={item.Nombre} /></div>
                 <div><p className='textoBlanco'>{item.Nombre}</p>
                 <p className='textoBlanco'>Precio unitario: $ {item.Precio}</p>
                 <p className='textoBlanco'>Cantidad: {item.quantity}</p>
