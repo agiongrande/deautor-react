@@ -3,6 +3,7 @@ import { useState,useContext } from "react";
 import { Link } from 'react-router-dom'
 import CartContext from '../../context/CartContext'
 import CartList from "../CartList/CartList";
+import ContactForm from "../ContactForm/ContactForm";
 import {collection, writeBatch,getDoc, doc, addDoc, Timestamp} from "firebase/firestore"
 import { firestoreDb } from "../../services/firebase/firebase";
 import NotificationContext from "../../services/notification/NotificationServices";
@@ -11,24 +12,24 @@ function Cart  () {
 
     const { items,removeAllItems,getPrecioTotal,removeItem } = useContext(CartContext)
     const [ProcessingOrder,setProcessingOrder] = useState(false)
+    const [estadoCompra,setEstadoCompra] = useState(0)
     const  setNotification  = useContext(NotificationContext)
+    const [datosGuardados, setDatosGuardados] = useState(false)
 
-    //const [contact,setContact] = useState({
-    //    nombre: '',
-    //    telefono: '',
-    //    direccion: ''
-    //})
+    const [contact,setContact] = useState({
+        nombre: '',
+        telefono: '',
+        direccion: '',
+        comentario: ''
+    
+    })
 
     const confirmarOrden = () => {
 
         setProcessingOrder(true)
 
         const objOrder = {
-            buyer: {
-                name: '',
-                direccion: '',
-                telefono: ''
-            },
+            buyer: contact,
             items: items,
             date: Timestamp.fromDate(new Date()),
             total: getPrecioTotal()
@@ -37,18 +38,7 @@ function Cart  () {
         const batch = writeBatch(firestoreDb)
         const outOfStock = []
 
-        objOrder.items.forEach(prod => {
-            getDoc(doc(firestoreDb,'productos',prod.id)).then(response => {
-                if (response.data().Stock >= prod.quantity){
-                    batch.update(doc(firestoreDb,"productos", prod.id), {
-                        Stock: response.data().Stock - prod.quantity
-                    })
-                } else {
-                    outOfStock.push({id: response.id, ...response.data()})
-                }
-            })
-        });
-        
+        const ejecutarOrden = () => {
             if (outOfStock.length === 0){
                 addDoc(collection(firestoreDb, "ordenes"),objOrder).then(({id}) => {
                     batch.commit().then(() => {
@@ -67,9 +57,26 @@ function Cart  () {
                     removeItem(prod.id)
                 }
             }
-        
-      
-}
+        }
+
+
+        objOrder.items.forEach(prod => {
+            getDoc(doc(firestoreDb,'productos',prod.id)).then(response => {
+                if (response.data().Stock >= prod.quantity){
+                    batch.update(doc(firestoreDb,"productos", prod.id), {
+                        Stock: response.data().Stock - prod.quantity
+                    })
+                } else {
+                    outOfStock.push({id: response.id, ...response.data()})
+                }
+            }).catch((error) => {
+                setNotification(`error`,`Error`)
+            }).then(() => {
+                ejecutarOrden();
+            })
+        });
+
+    }
 
     if (ProcessingOrder){
         return(
@@ -92,11 +99,22 @@ function Cart  () {
 
     return(
         <>
-        <div className='tituloCarrito'>Carrito</div>
-        <CartList/>
-        <button className='botonCarrito' onClick={removeAllItems}>Vaciar carrito</button>
-        <button className='botonCarrito' onClick={() => confirmarOrden()}>Confirmar compra</button>
-        <div className='precioTotal'>Total: $ {getPrecioTotal()}</div>
+            
+            {estadoCompra ===0 ?
+            <><div className='tituloCarrito'>Carrito</div>
+                <CartList/>
+                <button className='botonCarrito' onClick={removeAllItems}>Vaciar carrito</button>
+                <button className='botonCarrito' onClick={() => setEstadoCompra(1)}>Continuar</button>
+            </>
+            :
+            <>
+            <div className='tituloCarrito'>Contacto</div>
+                <ContactForm setContact={setContact} setDatosGuardados={setDatosGuardados} datosGuardados={datosGuardados}/>
+                <button className='botonCarrito' onClick={() => setEstadoCompra(0)}>Volver</button>
+                {datosGuardados && <button className='botonCarrito' onClick={() => confirmarOrden()}>Confirmar compra</button>}
+            </>}
+
+            <div className='precioTotal'>Total: $ {getPrecioTotal()}</div>
         </>
         )
     }

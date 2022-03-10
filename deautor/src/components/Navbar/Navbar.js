@@ -19,7 +19,6 @@ const Navbar = () => {
         return{id:cat.id,...cat.data()}
       })
       setCategorias(categorias)
-      console.log(categorias)
     })
   },[])
 

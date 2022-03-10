@@ -15,10 +15,8 @@ const ItemDetailContainer = () => {
   useEffect(() =>{
     setLoading(true);
     const docRef= doc(firestoreDb,"productos", productID)
-    console.log(productID)
     getDoc(docRef).then(response =>  {
       const product = {id: response.id, ...response.data()}
-      console.log(product)
     setProduct(product)  
     }).finally(() => {setLoading(false)})
   },[productID])
