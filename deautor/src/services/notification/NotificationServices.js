@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { useContext, createContext, useState } from "react"
 
 const Notification = ( {mensaje = 'Prueba', severity}) => {
     const notificationStyles = {
@@ -48,4 +48,6 @@ export const NotificationServicesProvider = ({children}) => {
     )
 }
 
-export default NotificationContext
+export const useNotificationServices = () => {
+    return useContext(NotificationContext)
+}

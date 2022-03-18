@@ -6,14 +6,14 @@ import CartList from "../CartList/CartList";
 import ContactForm from "../ContactForm/ContactForm";
 import {collection, writeBatch,getDoc, doc, addDoc, Timestamp} from "firebase/firestore"
 import { firestoreDb } from "../../services/firebase/firebase";
-import NotificationContext from "../../services/notification/NotificationServices";
+import {useNotificationServices} from "../../services/notification/NotificationServices";
 
 function Cart  () {
 
     const { items,removeAllItems,getPrecioTotal,removeItem } = useContext(CartContext)
     const [ProcessingOrder,setProcessingOrder] = useState(false)
     const [estadoCompra,setEstadoCompra] = useState(0)
-    const  setNotification  = useContext(NotificationContext)
+    const  setNotification  = useNotificationServices()
     const [datosGuardados, setDatosGuardados] = useState(false)
 
     const [contact,setContact] = useState({
@@ -45,7 +45,7 @@ function Cart  () {
                         setNotification(`success`,`La orden se creó exitosamente. Su número de orden es: ${id}`)
                     });
                 }).catch(error => {
-                    setNotification(`error`,`Error`)
+                    setNotification(`error`,`Se produjo un error: ${error}`)
                 }).finally(() => {
                     setProcessingOrder(false)
                     removeAllItems();
@@ -75,7 +75,6 @@ function Cart  () {
                 ejecutarOrden();
             })
         });
-
     }
 
     if (ProcessingOrder){

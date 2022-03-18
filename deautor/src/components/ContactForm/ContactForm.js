@@ -22,7 +22,7 @@ const ContactForm = ({setContact, setDatosGuardados,datosGuardados}) => {
         console.log()
         
     }
-    if (datosGuardados == true){
+    if (datosGuardados === true){
         return(
         <div className='ContactForm'>
             <p>Nombre: {nombre}</p>
@@ -38,18 +38,18 @@ const ContactForm = ({setContact, setDatosGuardados,datosGuardados}) => {
         <div className='ContactContainer'>
         <form className='ContactForm' onSubmit={handleContactForm}>
           <label className='LabelContact'>Nombre:
-            <input className='InputContact' type='text' value={nombre} onChange={({ target }) => setNombre(target.value)}/>
+            <input className='InputContact' type='text' required value={nombre} onChange={({ target }) => setNombre(target.value)}/>
           </label>
           <label className='LabelContact'>Telefono:
-            <input className='InputContact' type='text' value={telefono} onChange={({ target }) => setTelefono(target.value)}/>
+            <input className='InputContact' type='number' required value={telefono} onChange={({ target }) => setTelefono(target.value)}/>
           </label>
           <label className='LabelContact'>Direccion:
-            <input className='InputContact' type='text' value={direccion} onChange={({ target }) => setDireccion(target.value)}/>
+            <input className='InputContact' type='text' required value={direccion} onChange={({ target }) => setDireccion(target.value)}/>
           </label>
           <label className='LabelContact'>Comentario: 
             <input className='InputContact' type='text' value={comentario} onChange={({ target }) => setComentario(target.value)}/>
           </label>
-          <button className='Button' className='botonDatos' type='submit'>Confirmar datos</button>
+          <button  className='botonDatos' type='submit'>Confirmar datos</button>
         </form>
       </div>
     )
