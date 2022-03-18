@@ -2,9 +2,9 @@
 
 ## Proyecto desarrollado por: Alejandro Giongrande
 
-Mail: agiongrande@gmail.com
-GitHub: https://github.com/agiongrande/deautor-react/tree/main/deautor
-Linkedin: https://www.linkedin.com/in/alejandro-giongrande/
+- Mail: agiongrande@gmail.com
+- GitHub: https://github.com/agiongrande/deautor-react/tree/main/deautor
+- Linkedin: https://www.linkedin.com/in/alejandro-giongrande/
 
 ### Información del Proyecto
 
